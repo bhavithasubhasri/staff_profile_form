@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Staff Profile Management</title>
+   <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+    <div class="container">
+        <form class="product-form" action="/admin" method="POST" enctype="multipart/form-data">
+            <header class="staff_profile">
+                Staff Profile Create
+            </header>
+            
+            <div class="tab-container">
+                <div class="tab-buttons">
+                    <button type="button" class="tab-btn active" onclick="showTab('profile')">Profile</button>
+                    <button type="button" class="tab-btn" onclick="showTab('related')">Related Info</button>
+                </div>
+                
+                <div id="profile" class="tab-content active">
+                    <div class="profile-upload-container">
+                        <input type="file" id="profileUpload" name="profileUpload" accept="image/*" onchange="previewImage(event)">
+                        <label for="profileUpload">
+                            <img id="profileImage" src="https://www.freeiconspng.com/uploads/profile-icon-9.png" alt="Profile" />
+                        </label>
+                        <div style="margin-top: 10px; color: #6c757d; font-size: 12px;">Click to upload profile picture</div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-control">
+                            <label for="staff_code" class="required">Staff Code</label>
+                            <input type="text" name="staff_code" id="staff_code" required>
+                        </div>
+                        <div class="form-control">
+                            <label for="status" class="required">Status</label>
+                            <input type="text" name="status" id="status" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-control">
+                            <label for="first_name" class="required">First Name</label>
+                            <input type="text" name="first_name" id="first_name" required>
+                        </div>
+                        <div class="form-control">
+                            <label for="last_name" class="required">Last Name</label>
+                            <input type="text" name="last_name" id="last_name" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-control">
+                            <label for="Gender">Gender</label>
+                            <select id="Gender" name="Gender">
+                                <option value="">Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+                        <div class="form-control">
+                            <label for="birthday">Birthday</label>
+                            <input type="date" name="birthday" id="birthday">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-control">
+                            <label for="email" class="required">Email</label>
+                            <input type="email" placeholder="talent@cybercurate.com" name="email" id="email" required>
+                        </div>
+                        <div class="form-control">
+                            <label for="phone">Phone</label>
+                            <input type="text" name="phone" id="phone">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-control">
+                            <label for="workplace">Workplace</label>
+                            <input type="text" name="workplace" id="workplace">
+                        </div>
+                        <div class="form-control">
+                            <label for="job_position" class="required">Job Position</label>
+                            <input type="text" name="job_position" id="job_position" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-control">
+                            <label for="direct_manager">Direct Manager</label>
+                            <input type="text" name="direct_manager" id="direct_manager">
+                        </div>
+                        <div class="form-control">
+                            <label for="role">Role</label>
+                            <select id="role" name="role">
+                                <option value="">Select Role</option>
+                                <option value="Employee">Employee</option>
+                                <option value="Manager">Manager</option>
+                                <option value="Admin">Admin</option>
+                                <option value="HR">HR</option>
+                                <option value="Developer">Developer</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-control">
+                            <label for="academic_level">Academic Level</label>
+                            <input type="text" name="academic_level" id="academic_level">
+                        </div>
+                        <div class="form-control">
+                            <label for="hourly_rate">Hourly Rate</label>
+                            <input type="text" name="hourly_rate" id="hourly_rate">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-control">
+                            <label for="default_language">Default Language</label>
+                            <input type="text" name="default_language" id="default_language">
+                        </div>
+                        <div class="form-control">
+                            <label for="direction">Direction</label>
+                            <input type="text" name="direction" id="direction">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-control">
+                            <label for="email_signature">Email Signature</label>
+                            <textarea name="email_signature" id="email_signature" rows="3"></textarea>
+                        </div>
+                        <div class="form-control">
+                            <label for="other_information">Other Information</label>
+                            <textarea name="other_information" id="other_information" rows="3"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-control">
+                            <label for="Twilio_Phone_Number">Twilio Phone Number</label>
+                            <input type="text" name="Twilio_Phone_Number" id="Twilio_Phone_Number">
+                        </div>
+                        <div class="form-control">
+                            <label for="Twilio_whatsapp">Is Twilio Number WhatsApp Enabled</label>
+                            <select id="Twilio_whatsapp" name="Twilio_whatsapp">
+                                <option value="">Select Option</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="related" class="tab-content">
+                    <div class="form-row">
+                        <div class="form-control">
+                            <label for="domicile">Domicile</label>
+                            <input type="text" name="domicile" id="domicile">
+                        </div>
+                        <div class="form-control">
+                            <label for="marital_status">Marital Status</label>
+                            <select name="marital_status" id="marital_status">
+                                <option value="">Select Status</option>
+                                <option value="Single">Single</option>
+                                <option value="Married">Married</option>
+                                <option value="Divorced">Divorced</option>
+                                <option value="Widowed">Widowed</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-control">
+                            <label for="current_address">Current Address</label>
+                            <input type="text" name="current_address" id="current_address">
+                        </div>
+                        <div class="form-control">
+                            <label for="nation">Nation</label>
+                            <input type="text" name="nation" id="nation">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-control">
+                            <label for="place_of_birth">Place of Birth</label>
+                            <input type="text" name="place_of_birth" id="place_of_birth">
+                        </div>
+                        <div class="form-control">
+                            <label for="religion">Religion</label>
+                            <input type="text" name="religion" id="religion">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-control">
+                            <label for="citizen_id">Citizen Identification</label>
+                            <input type="text" name="citizen_id" id="citizen_id">
+                        </div>
+                        <div class="form-control">
+                            <label for="date_of_issue">Date of Issue</label>
+                            <input type="date" name="date_of_issue" id="date_of_issue">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-control">
+                            <label for="place_of_issue">Place of Issue</label>
+                            <input type="text" name="place_of_issue" id="place_of_issue">
+                        </div>
+                        <div class="form-control">
+                            <label for="resident">Resident</label>
+                            <input type="text" name="resident" id="resident">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-control">
+                            <label for="bank_account_number">Bank Account Number</label>
+                            <input type="text" name="bank_account_number" id="bank_account_number">
+                        </div>
+                        <div class="form-control">
+                            <label for="bank_account_name">Bank Account Name</label>
+                            <input type="text" name="bank_account_name" id="bank_account_name">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-control">
+                            <label for="bank_name">Bank Name</label>
+                            <input type="text" name="bank_name" id="bank_name">
+                        </div>
+                        <div class="form-control">
+                            <label for="personal_tax_code">Personal Tax Code</label>
+                            <input type="text" name="personal_tax_code" id="personal_tax_code">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-control">
+                            <label for="epf_no">EPF No</label>
+                            <input type="text" name="epf_no" id="epf_no">
+                        </div>
+                        <div class="form-control">
+                            <label for="social_security_no">Social Security No</label>
+                            <input type="text" name="social_security_no" id="social_security_no">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-control">
+                            <label for="facebook">Facebook</label>
+                            <input type="text" name="facebook" id="facebook" placeholder="https://facebook.com/username">
+                        </div>
+                        <div class="form-control">
+                            <label for="linkedin">LinkedIn</label>
+                            <input type="text" name="linkedin" id="linkedin" placeholder="https://linkedin.com/in/username">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-control">
+                            <label for="skype">Skype</label>
+                            <input type="text" name="skype" id="skype">
+                        </div>
+                        <div class="form-control">
+                            <!-- Empty for alignment -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="button-container">
+                    <button type="button" class="btn">Close</button>
+                    <button type="submit" class="btn">Save Staff Profile</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            const tabs = document.querySelectorAll('.tab-content');
+            const buttons = document.querySelectorAll('.tab-btn');
+
+            tabs.forEach(tab => tab.classList.remove('active'));
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+        
+        function previewImage(event) {
+            const preview = document.getElementById('profileImage');
+            const file = event.target.files[0];
+            
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Form validation
+        document.querySelector('.product-form').addEventListener('submit', function(e) {
+            const requiredFields = document.querySelectorAll('input[required]');
+            let isValid = true;
+
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    field.style.borderColor = '#dc3545';
+                    isValid = false;
+                } else {
+                    field.style.borderColor = '#e9ecef';
+                }
+            });
+
+            if (!isValid) {
+                e.preventDefault();
+                alert('Please fill in all required fields.');
+            }
+        });
+    </script>
+</body>
+</html>
